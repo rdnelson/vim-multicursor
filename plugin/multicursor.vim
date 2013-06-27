@@ -198,7 +198,7 @@ function! s:InitLoop()
 	call s:EnsureSyntaxHighlighting()
 
 	" will hold the mode
-	let s:mode = ""
+	let s:mode = mode()
 	" will hold the latest entered key (from getchar())
 	let s:input = ""
 	" will hold the in-progress command.  s:input will be appeneded to it
