@@ -329,6 +329,8 @@ function! s:Output()
 			echo "  MC (partial visual) '".s:total_input."'\r"
 		elseif s:mode == "o"
 			echo "  MC (partial opertr) '".s:total_input."'\r"
+        elseif s:total_input[0] == ":"
+            echo "  MC (command) '".s:total_input."'\r"
 		else
 			echo "  MC (partial normal) '".s:total_input."'\r"
 		endif
@@ -389,6 +391,12 @@ function! s:CheckCommand()
 		let l:run_command = 0
 	endif
 
+    if s:total_input[0] == ':' && s:input == "\<esc>"
+        let l:run_command = 0
+        let s:total_input = ""
+        let s:input = ""
+        let s:mode = "n"
+    endif
 
 	return l:run_command
 endfunction
