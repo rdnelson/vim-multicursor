@@ -330,7 +330,7 @@ function! s:Output()
 		elseif s:mode == "o"
 			echo "  MC (partial opertr) '".s:total_input."'\r"
 		else
-			echo "  MC (partial normal) '".s:total_input.."'\r"
+			echo "  MC (partial normal) '".s:total_input."'\r"
 		endif
 	endif
 endfunction
