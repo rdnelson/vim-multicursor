@@ -158,6 +158,10 @@ function! MultiCursorSearch(search_pattern)
 	call cursor(1,1)
 
 	" search the buffer for the search pattern
+    if search(l:search_pattern, 'Wc') > 0
+        call MultiCursorPlaceCursor()
+    endif
+
 	while search(l:search_pattern, 'W') > 0
 		" found a match, create a cursor there
 		call MultiCursorPlaceCursor()
