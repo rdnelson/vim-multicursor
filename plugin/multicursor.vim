@@ -343,7 +343,12 @@ function! s:Input()
 	if type(s:input) == 0
 		let s:input = nr2char(s:input)
 	endif
-	let s:total_input .= s:input
+    if char2nr(s:input) == 128
+        let s:input = ''
+        let s:total_input = strpart(s:total_input, -1, strlen(s:total_input))
+    else
+        let s:total_input .= s:input
+    endif
 endfunction
 
 " we need to figure out of the pending command from s:total_input
